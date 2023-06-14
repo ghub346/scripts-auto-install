@@ -24,23 +24,28 @@ echo $vu
 if [[ "$vu" =~ "focal" ]]
 then
      echo "focal"
-     echo "starting install of Tailscale"
+     echo "Adding repo's and key's for Tailscale"
 
-       curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-       curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
-
-sudo apt update
-
-sudo apt-get -y install tailscale
+     curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+     curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/focal.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 
 elif [[ "$vu" =~ "jammy" ]]
 then
      echo "jammy"
+     echo "Adding repo's and key's for Tailscale"
+
+     curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+     curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 
 else
      echo "Your release is the following"
      $vu
 fi
+
+     echo "Performing install of Tailscale."
+     
+     sudo apt update
+     sudo apt-get -y install tailscale
 
 
 echo "################################################################"
