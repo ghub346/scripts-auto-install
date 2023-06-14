@@ -13,8 +13,6 @@ set -e
 
 # Let's update apt first.
 
-sudo apt-get update
-
 # Remove un-needed extra packages for head-less server operation.
 
 sudo apt-get remove --auto-remove ubuntu-gnome-desktop
