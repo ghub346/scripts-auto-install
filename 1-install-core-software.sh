@@ -17,7 +17,7 @@ sudo apt-get update
 
 #software from 'normal' repositories
 sudo apt-get install -y apt-transport-https openssl software-properties-common git curl ca-certificates zlib1g libssl-dev
-sudo apt-get install -y dconf-cli dconf-editor ppa-purge ffmpeg
+sudo apt-get install -y ppa-purge ffmpeg
 
 
 ###############################################################################################
