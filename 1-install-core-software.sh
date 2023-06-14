@@ -31,7 +31,7 @@ sudo apt-get install -y ppa-purge ffmpeg
 ###############################################################################################
 
 # installation of zippers and unzippers
-sudo apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
+sudo apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract
 
 
 echo "################################################################"
