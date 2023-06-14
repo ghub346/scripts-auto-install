@@ -11,8 +11,12 @@ set -e
 #
 ##################################################################################################################
 
+# Let's update apt first.
+
+sudo apt-get update
+
 #software from 'normal' repositories
-sudo apt-get install -y apt-transport-https openssl ca-certificates zlib1g libpcre3
+sudo apt-get install -y apt-transport-https openssl software-properties-common python-software-properties git curl ca-certificates zlib1g zlib1g-dev libpcre3 libpcre3-dev build-essential libssl-dev
 sudo apt-get install -y dconf-cli dconf-editor ppa-purge ffmpeg
 
 ###############################################################################################
