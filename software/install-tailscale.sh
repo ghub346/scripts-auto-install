@@ -47,6 +47,10 @@ fi
      sudo apt update
      sudo apt-get -y install tailscale
 
+     echo "Bring up Tailscale"
+
+     sudo tailscale up
+
 
 echo "################################################################"
 echo "#####################  Tailscale installed  ####################"
