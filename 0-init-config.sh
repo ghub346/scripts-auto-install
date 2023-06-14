@@ -13,13 +13,13 @@ set -e
 ##################################################################################################################
 
 
-# Create user
-
-useradd -s /bin/bash -m -G sudo,wheel baller175
-
 # Create wheel group.
 
 groupadd wheel
+
+# Create user
+
+useradd -s /bin/bash -m -G sudo,wheel baller175
 
 # Create wheel entry in sudoers file.
 touch /etc/sudoers.d/wheelie ; echo "%wheel         ALL = (ALL) NOPASSWD: ALL" >> /etc/sudoers.d/wheelie
