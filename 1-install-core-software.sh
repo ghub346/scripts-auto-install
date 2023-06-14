@@ -15,6 +15,16 @@ set -e
 
 sudo apt-get update
 
+# Remove un-needed extra packages for head-less server operation.
+
+sudo apt-get remove --auto-remove ubuntu-gnome-desktop
+
+sudo apt-get purge --auto-remove ubuntu-gnome-desktop
+
+sudo apt-get autoremove 
+
+
+
 #software from 'normal' repositories
 sudo apt-get install -y apt-transport-https openssl software-properties-common git curl ca-certificates zlib1g libssl-dev
 sudo apt-get install -y ppa-purge ffmpeg
