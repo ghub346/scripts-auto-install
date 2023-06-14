@@ -12,13 +12,35 @@
 #
 ##################################################################################################################
 
+# Version of Ubuntu.
+
+vu=$(lsb_release -c)
+
+echo $vu
+
+[[ "$vu" =~ "focal" ]] && echo "focal'"
 
 
-curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+if [[ "$vu" =~ "focal" ]]
+then
+     echo "focal"
+     echo "starting install of Tailscale"
+
+       curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
+       curl -fsSL https://pkgs.tailscale.com/stable/ubuntu/jammy.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
 
 sudo apt update
+
 sudo apt-get -y install tailscale
+
+elif [[ "$vu" =~ "jammy" ]]
+then
+     echo "jammy"
+
+else
+     echo "Your release is the following"
+     $vu
+fi
 
 
 echo "################################################################"
