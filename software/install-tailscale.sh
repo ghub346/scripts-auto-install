@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #
 ##################################################################################################################
@@ -42,14 +41,20 @@ else
      $vu
 fi
 
-     echo "Performing install of Tailscale."
+     echo "Checking if Tailscale installed."
      
-     sudo apt update
-     sudo apt-get -y install tailscale
+          
+if [ -x /usr/bin/tailscale ]; then
+    echo "enabling tailscale ssh"
+    sudo tailscale up --ssh
+else
+    echo "installing Tailscale" 
+    sudo apt update
+    sudo apt-get -y install tailscale
+    sudo tailscale up
+fi
 
-     echo "Bring up Tailscale w\ ssh"
-
-     sudo tailscale up --ssh
+     
 
 
 echo "################################################################"
