@@ -17,7 +17,7 @@ vu=$(lsb_release -c)
 
 echo $vu
 
-[[ "$vu" =~ "focal" ]] && echo "focal'"
+# [[ "$vu" =~ "focal" ]] && echo "focal'"
 
 
 if [[ "$vu" =~ "focal" ]]
@@ -27,15 +27,17 @@ then
 
      wget https://mega.nz/linux/repo/xUbuntu_20.04/amd64/megacmd-xUbuntu_20.04_amd64.deb
 
-     dpkg 
-
+     dpkg -i megacmd-xUbuntu_20.04_amd64.deb
+     apt --fix-broken install -y
+     
 elif [[ "$vu" =~ "jammy" ]]
 then
      echo "jammy"
      echo "Downloading binary for Jammy"
 
       wget https://mega.nz/linux/repo/xUbuntu_22.04/amd64/megacmd-xUbuntu_22.04_amd64.deb      
-
+     dpkg -i megacmd-xUbuntu_22.04_amd64.deb
+     apt --fix-broken install -y
 else
      echo "Your release is the following"
      $vu
@@ -44,15 +46,12 @@ fi
      echo "Checking if MegaCMD installed."
      
           
-#if [ -x /usr/bin/tailscale ]; then
-#    echo "enabling tailscale ssh"
-#    sudo tailscale up --ssh
-#else
-#    echo "installing Tailscale" 
-#    sudo apt update
-#    sudo apt-get -y install tailscale
-#    sudo tailscale up
-#fi
+if [ -x /usr/bin/mega-cmd ]; then
+    echo "Mega-cmd has been installed."    
+else
+    echo "Recheck installation attempt." 
+    
+fi
 
      
 
