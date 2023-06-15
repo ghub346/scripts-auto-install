@@ -47,9 +47,9 @@ fi
      sudo apt update
      sudo apt-get -y install tailscale
 
-     echo "Bring up Tailscale"
+     echo "Bring up Tailscale w\ ssh"
 
-     sudo tailscale up
+     sudo tailscale up --ssh
 
 
 echo "################################################################"
