@@ -42,16 +42,23 @@ else
 fi
 
      echo "Checking if Tailscale installed."
+
+
+installtailscale() {
+
+    echo "installing Tailscale" 
+    sudo apt update
+    sudo apt-get -y install tailscale
+    sudo tailscale up
+
+}
      
           
 if [ -x /usr/bin/tailscale ]; then
     echo "enabling tailscale ssh"
     sudo tailscale up --ssh
 else
-    echo "installing Tailscale" 
-    sudo apt update
-    sudo apt-get -y install tailscale
-    sudo tailscale up
+    installtailscale
 fi
 
      
