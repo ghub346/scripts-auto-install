@@ -53,19 +53,41 @@ installtailscale() {
 
 }
 
-installtailscale
+
      
-          
-if [ -x /usr/bin/tailscale ]; then
+
+
+SERVICE="apt-get"
+if pgrep -x "$SERVICE" >/dev/null
+then
+    echo "$SERVICE is running"
+    echo "will try again in 10 seconds."
+    sleep 10
+    installtailscale
+elif [ -x /usr/bin/tailscale ]; then
     echo "enabling tailscale ssh"
     sudo tailscale up --ssh
+    # mail
 else
-    echo "Check the script.  Tailscale hasn't been found in it's default path."
+    installtailscale
+#    echo "Check the script"
 fi
+     
+
+          
+#if [ -x /usr/bin/tailscale ]; then
+#    echo "enabling tailscale ssh"
+#    sudo tailscale up --ssh
+#elif
+#    echo "Check the script.  Tailscale hasn't been found in it's default path."
+#fi
+
+
+
+####
+
 
      
-echo "Tailscale has been installed."
-
 echo "################################################################"
 echo "#####################  Tailscale installed  ####################"
 echo "################################################################"
