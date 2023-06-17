@@ -52,17 +52,19 @@ installtailscale() {
     sudo tailscale up
 
 }
+
+installtailscale
      
           
 if [ -x /usr/bin/tailscale ]; then
     echo "enabling tailscale ssh"
     sudo tailscale up --ssh
 else
-    installtailscale
+    echo "Check the script.  Tailscale hasn't been found in it's default path."
 fi
 
      
-
+echo "Tailscale has been installed."
 
 echo "################################################################"
 echo "#####################  Tailscale installed  ####################"
