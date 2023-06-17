@@ -70,8 +70,11 @@ elif [ -x /usr/bin/tailscale ]; then
     # mail
 else
     installtailscale
-    sleep 20
-    echo "Activating Tailscale ssh service."
+    sleep 15
+    echo -n "Tailscale service has been installed."
+    echo -n "Activating Tailscale ssh service."
+    sudo tailscale up --ssh
+
 #    echo "Check the script"
 fi
      
