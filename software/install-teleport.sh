@@ -6,6 +6,9 @@
 
 # teleport configure --acme --acme-email=cyninja346@outlook.com --cluster-name=tele.amaze-it.link | sudo tee /etc/teleport.yaml > /dev/null
 
+
+# Reference - disable IPv6 Ubuntu 
+
 # echo to /etc/sysctl.conf 
 
 #net.ipv6.conf.all.disable_ipv6=1
